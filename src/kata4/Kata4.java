@@ -12,14 +12,34 @@ public class Kata4 {
 
    
     public static void main(String[] args) {
-        
+        execute();
+    }
+    
+    
+    public static void execute() {  
+        output();
+    }
+    
+    
+    
+    public static MailListReader input() {
         
         MailListReader correos = new MailListReader();
+        return correos;        
+    }
+    
+    
+    public static MailHistogramBuilder process() {
+        
         MailHistogramBuilder histogramBuilder = new MailHistogramBuilder();
-        
-        
-        new HistogramDisplay(histogramBuilder.builder(correos.read("./email.txt"))).execute();
-        
+        return histogramBuilder;
+    
+    }
+
+    
+    
+    public static void output() {
+        new HistogramDisplay(process().builder(input().read("./email.txt"))).execute();
     }
     
 }
